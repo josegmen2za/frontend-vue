@@ -2,17 +2,19 @@
   <section id articles-component>
     <div v-if="!trabajos">Cargando...</div>
     <div class="articles-list" v-if="trabajos && trabajos.length >= 1">
-      <article class="article-item" v-for="trabajos in trabajos" :key="trabajos._id">
+      
+      <article class="article-item" v-for="trabajos in trabajos" :key="trabajos.id">
         <div class="image-wrap">
-          <img :src="trabajos.image" :alt="trabajos.empresa" v-if="trabajos.image" />
-          <img src="../assets/imagenes/default.png" :alt="trabajos.empresa" v-if="!trabajos.image" />
+          <img :src="trabajos.imagen" :alt="trabajos.empresa" v-if="trabajos.imagen" />
+          <img src="../assets/imagenes/default.png" :alt="trabajos.empresa" v-if="!trabajos.imagen" />
         </div>
 
         <h2>
-          <router-link :to="{name: 'trabajo', params: {id: trabajos._id}}">{{trabajos.empresa}}</router-link>
+          <router-link :to="{name: 'trabajo', params: {id: trabajos.id}}">{{trabajos.empresa}}</router-link>
         </h2>
-        <span class="date">{{trabajos.cargo }}</span>
-        <!-- <p>{{trabajos.grado_obtenido}}</p> -->
+        <span class="date"> Cargo: {{trabajos.cargo }}</span>
+        <p> Area: {{trabajos.area}}</p>
+          
         <div class="crearfix"></div>
       </article>
     </div>

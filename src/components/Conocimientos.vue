@@ -38,11 +38,12 @@
 
 
 import Sidebar from "./Sidebar";
-import axios from "axios";
+
 import Global from "../Global";
 
 export default {
   name: "Conocimientos",
+  
   components: {
       
     
@@ -51,11 +52,11 @@ export default {
   },
   mounted() {
     
-    this.getLastArticles();
+    
   },
   data(){
     return{
-      articles: [],
+      
       url: Global.url,
           intro:'Desarrollador Full stack con experiencia en desarrollo de aplicaciones en Visual Studio.net, desarrollador frontend en Angular, React, javascript, Vuejs node.js typescript, HTML5, CSS3, Backend con javascript, administración de bases de datos SQL Server y Mysql, Mongodb, instalación de software, instalación y configuración de redes alámbricas y wifi, instalación y configuración de servidores, web, proxy, ftp, de Bases de Datos en Linux y Windows, Proactivo, dinámico, con alto interés en aprender y adquirir nuevos conocimientos, con nivel del idioma inglés medio.'
 
@@ -63,14 +64,7 @@ export default {
     
   },
   methods: {
-    getLastArticles() {
-      axios.get(this.url+"articles/true").then(res => {
-        if (res.data.status === "success") {
-          this.articles = res.data.articles;
-        }
-        console.log(this.articles);
-      });
-    }
+    
   }
 };
 </script>

@@ -39,16 +39,23 @@ export default {
   data(){
     return{
       trabajos: [],
-      url: Global.url
+      url: Global.url,
+      id: 1
     }
   },
   methods: {
     getTrabajos() {
-      axios.get(this.url+"trabajos").then(res => {
-        if (res.data.status === "success") {
-          this.trabajos = res.data.TrabajosRealizados;
+      axios.get(this.url+"trabajos/"+this.id).then(res => {
+        if (res.statusText === "OK") {
+          this.trabajos = res.data;
+          console.log(res);
+          console.log(res.data);
+          console.log(this.trabajos);
+          console.log(res.config.headers);
+          
+          
         }
-        console.log(this.trabajos);
+        console.log(res.statusText);
       });
     }
   }

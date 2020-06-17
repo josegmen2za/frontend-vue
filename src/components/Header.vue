@@ -5,7 +5,7 @@
             <div id="logo">
                 <img src="../assets/imagenes/Vuejs_Logo_2.svg" class="app-logo" alt="logotipo" />
                 <span id="brand">
-                    <strong>Curso</strong>Vuejs
+                    <strong>joseg</strong>Mendoza
                 </span>
             </div>
             <!--Menu-->
@@ -22,6 +22,9 @@
                     </li>
                     <li>
                         <router-link to="/trabajos" active-class="active">Experiencias Laborales</router-link>
+                    </li>
+                    <li>
+                        <router-link to="/repuestos" active-class="active">Repuestos</router-link>
                     </li>
 
                 </ul>

@@ -37,7 +37,7 @@
 import Skill from "./Skill";
 import Slider from "./Slider";
 import Sidebar from "./Sidebar";
-import axios from "axios";
+
 import Global from "../Global";
 
 export default {
@@ -50,7 +50,7 @@ export default {
   },
   mounted() {
     
-    this.getLastArticles();
+    
   },
   data(){
     return{
@@ -62,14 +62,7 @@ export default {
     
   },
   methods: {
-    getLastArticles() {
-      axios.get(this.url+"articles/true").then(res => {
-        if (res.data.status === "success") {
-          this.articles = res.data.articles;
-        }
-        console.log(this.articles);
-      });
-    }
+
   }
 };
 </script>

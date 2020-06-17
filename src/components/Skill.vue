@@ -69,8 +69,7 @@
 
 <script>
 
-/* import axios from "axios";
-import Global from "../Global"; */
+
 
 export default {
   name: "Skill",
@@ -79,23 +78,15 @@ export default {
   },
   mounted() {
     
-    this.getLastArticles();
+
   },
   data(){
     return{
-/*       articles: [],
-      url: Global.url */
+
     }
   },
   methods: {
-    /* getLastArticles() {
-      axios.get(this.url+"articles/true").then(res => {
-        if (res.data.status === "success") {
-          this.articles = res.data.articles;
-        }
-        console.log(this.articles);
-      });
-    } */
+
   }
 };
 </script>

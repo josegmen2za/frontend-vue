@@ -4,10 +4,10 @@
     <div class="center">
  
             <section id="content">
-            <h2 class="subheader">Estudios Realizados</h2>
+            <h2 class="subheader">Repuestos</h2>
             <!-- listado articulos -->
             <div id="articles">
-                <Estudios :estudios="estudios"/>
+                <Repuestos :repuestos="repuestos"/>
 
             </div>
             
@@ -24,39 +24,38 @@ import Slider from "./Slider";
 import Sidebar from "./Sidebar";
 import axios from "axios";
 import Global from "../Global";
-import Estudios from "./Estudios";
+import Repuestos from "./Repuestos";
 export default {
-  name: "MostrarEstudios",
+  name: "MostrarTrabajos",
   components: {
     Slider,
     Sidebar,
-    Estudios
+    Repuestos
   },
   mounted() {
     
-    this.getEstudios();
+    this.getRepuestos();
   },
   data(){
     return{
-      estudios: [],
-      url: Global.url,
-      id: 1,
+      repuestos: [],
+      url: Global.urlRepuestos,
+      id: 1
     }
   },
   methods: {
-    getEstudios() {
-      axios.get(this.url+"estudios/"+this.id).then(res => {
+    getRepuestos() {
+      axios.get(this.url+"repuestos").then(res => {
         if (res.statusText === "OK") {
-          this.estudios = res.data;
+          this.repuestos = res.data;
           console.log(res);
           console.log(res.data);
-          console.log(this.estudios);
+          console.log(this.repuestos);
           console.log(res.config.headers);
           
           
         }
         console.log(res.statusText);
-        
       });
     }
   }

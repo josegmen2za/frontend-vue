@@ -4,11 +4,16 @@ import 'jquery';
 import 'popper.js';
 import './assets/css/Skill.css';
 import 'bootstrap';
+import  'datatables.net-bs4';
+import 'datatables.net-autofill-bs4';
+import 'datatables.net-buttons-bs4';
+import 'datatables.net-select-bs4';
 
 import VueRouter from 'vue-router';
 
 import MostrarEstudios from './components/MostrarEstudios';
 import MostrarTrabajos from './components/MostrarTrabajos';
+import MostrarRepuestos from './components/MostrarRepuestos';
 
 import Inicio from './components/Inicio';
 import Conocimientos from './components/Conocimientos';
@@ -16,6 +21,8 @@ import DatosPersonales from './components/DatosPersonales';
 
 import Estudio from './components/Estudio';
 import Trabajo from './components/Trabajo';
+import Repuesto from './components/Repuesto';
+
 
 
 
@@ -66,6 +73,7 @@ const routes = [
 
   {path: '/estudios', component:MostrarEstudios},
   {path: '/trabajos', component:MostrarTrabajos},
+  {path: '/repuestos', component:MostrarRepuestos},
   {path: '/inicio', component:Inicio},
   {path: '/conocimientos', component:Conocimientos},
   {path: '/datospersonales', component:DatosPersonales},
@@ -74,6 +82,7 @@ const routes = [
 
   {path: '/estudio/:id', name: 'estudio', component: Estudio},
   {path: '/trabajo/:id', name: 'trabajo', component: Trabajo},
+  {path: '/repuesto/:id', name: 'repuesto', component: Repuesto},
 
   {path: '*', component: ErrorComponent},
   {path: '/', component:Inicio},

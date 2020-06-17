@@ -12,8 +12,8 @@
         <div id="articles" v-if="persona">
             <article class="article-item">
                 <div class="image-wrap">
-                    <img :src="url+'get-image/'+persona.image" :alt="persona.title" v-if="persona.image" />
-            <img src="../assets/imagenes/default.png" :alt="persona.title" v-if="!persona.image" />
+                    <img :src="urlimg+persona.imagen" :alt="persona.title" v-if="persona.imagen" />
+                     <img src="../assets/imagenes/default.png" :alt="persona.title" v-if="!persona.imagen" />
                 </div>
                 <div >
                 <h2>Nombres y Apellidos: {{persona.nombres}} {{persona.apellidos}}</h2>
@@ -54,25 +54,44 @@ export default {
     
   },
   mounted() {
-    
     this.getDatos();
+    
   },
   data(){
     return{
-      persona: [],
+      newObject: {},
+      array2d:[],
+      errors: [],
+      persona: {},
       url: Global.url,
-      id:"5e6306a239bbee43307b6e37"
+      urlimg: Global.urlimg,
+      id:"1"
     }
   },
   methods: {
     getDatos() {
-      axios.get(this.url+'cvpersona/'+this.id).then(res => {
-        if (res.data.status === "success") {
-          this.persona = res.data.datospersonales;
+      axios.get(this.url+this.id).then(res => {
+        if (res.statusText === 'OK') {
+          this.persona = (res.data[0]);
+          console.log(res);
+          console.log(res.config.headers);
+          console.log(this.urlimg);
+          
         }
-        console.log(this.persona);
-      });
-    }
+        console.log(res.statusText);
+        
+      })
+        .catch(e=> {
+          this.errors.push(e)
+        })      ;
+      
+    },
+   
+
+    
+  },
+  computed:{
+     
   }
 };
 </script>
